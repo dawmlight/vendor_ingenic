@@ -1,0 +1,4 @@
+group("halley5_v20") {
+  deps = [ "init_configs" ]
+  print("Ingenic Halley5 is under devloping.")
+}

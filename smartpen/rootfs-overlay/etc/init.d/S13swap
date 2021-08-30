@@ -1,0 +1,25 @@
+#!/bin/sh
+case "$1" in
+	start)
+		echo "Storage Init..."
+		/bin/echo 0 > /proc/sys/vm/swappiness
+		exit $?
+		/bin/echo 1 > /sys/block/zram0/reset
+		/bin/echo 20M > /sys/block/zram0/disksize
+		/bin/dd if=/dev/zero of=/dev/zram0
+		/sbin/mkswap /dev/zram0
+		/sbin/swapon -p 10 /dev/zram0
+		/bin/echo 0 > /proc/sys/vm/swappiness
+		
+		;;
+	stop)
+		/sbin/swapoff /dev/zram0
+		;;
+	restart|reload)
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		;;
+esac
+
+exit $?

@@ -1,0 +1,194 @@
+-
+  fs_dir_name: rootfs
+  fs_dirs:
+    -
+      source_dir: buildroot-intermediate/target
+      target_dir: ../rootfs
+    -
+      source_dir: bin
+      target_dir: bin
+    -
+      source_dir: usr/bin
+      target_dir: usr/bin
+    -
+      source_dir: usr/lib
+      target_dir: usr/lib
+      ignore_files:
+        - .a
+      is_strip: TRUE
+      dir_mode: 755
+      file_mode: 644
+    -
+      source_dir: config
+      target_dir: etc
+    -
+      source_dir: etc
+      target_dir: etc
+    -
+      source_dir: obj/foundation/distributedschedule/samgr_lite/config
+      target_dir: etc
+      ignore_files:
+        - .a
+      is_strip: TRUE
+      dir_mode: 755
+      file_mode: 644
+    -
+      target_dir: data
+    -
+      target_dir: storage
+    -
+      target_dir: dev/root
+    -
+      target_dir: dev/pts
+    -
+      target_dir: dev/shm
+    -
+      target_dir: etc/network/if-down.d
+    -
+      target_dir: etc/network/if-post-down.d
+    -
+      target_dir: etc/network/if-up.d
+    -
+      target_dir: etc/rc_keymaps
+    -
+      target_dir: etc/ssl/certs
+    -
+      target_dir: etc/ssl/private
+    -
+      target_dir: media
+    -
+      target_dir: mnt
+    -
+      target_dir: opt
+    -
+      target_dir: proc
+    -
+      target_dir: data
+    -
+      target_dir: sys
+    -
+      target_dir: tmp
+    -
+      target_dir: run/dbus
+    -
+      target_dir: var/www
+    -
+      target_dir: var/lib/alsa
+    -
+      target_dir: var/lib/misc
+    -
+      target_dir: usr/share/dbus-1/services
+    -
+      target_dir: usr/share/dbus-1/session.d
+    -
+      target_dir: usr/share/dbus-1/system-services
+    -
+      target_dir: usr/share/dbus-1/system.d
+    -
+      target_dir: usr/share/udhcpc/default.script.d
+    -
+      target_dir: usr/lib/alsa-lib
+    -
+      target_dir: usr/data
+    -
+      target_dir: usr/lib/hw
+    -
+      target_dir: usr/resource
+  fs_filemode:
+    -
+      file_dir: "lib/ld-2.26.so"
+      file_mode: 500
+    -
+      file_dir: "bin/shell"
+      file_mode: 500
+  fs_symlink:
+    -
+      source: busybox
+      link_name: ${fs_dir}/bin/shell
+    -
+      source: libstdc++.so.6.0.24
+      link_name: ${fs_dir}/usr/lib/libstdc++.so
+    -
+      source: ../tmp
+      link_name: ${fs_dir}/var/cache
+    -
+      source: ../tmp
+      link_name: ${fs_dir}/var/lock
+    -
+      source: ../tmp
+      link_name: ${fs_dir}/var/log
+    -
+      source: ../run
+      link_name: ${fs_dir}/var/run
+    -
+      source: ../tmp
+      link_name: ${fs_dir}/var/spool
+    -
+      source: ../tmp
+      link_name: ${fs_dir}/var/tmp
+    -
+      source: /data/tts/msc
+      link_name: ${fs_dir}/msc
+    -
+      source: /data/offline_trans/niutrans
+      link_name: ${fs_dir}/niutrans
+    -
+      source: ../proc/self/fd
+      link_name: ${fs_dir}/dev/fd
+    -
+      source: ../tmp/log
+      link_name: ${fs_dir}/dev/log
+    -
+      source: ../proc/self/fd/2
+      link_name: ${fs_dir}/dev/stderr
+    -
+      source: ../proc/self/fd/0
+      link_name: ${fs_dir}/dev/stdin
+    -
+      source: ../proc/self/fd/1
+      link_name: ${fs_dir}/dev/stdout
+    -
+      source: ../proc/self/mounts
+      link_name: ${fs_dir}/etc/mtab
+    -
+      source: ../tmp/resolv.conf
+      link_name: ${fs_dir}/etc/resolv.conf
+    -
+      source: lib
+      link_name: ${fs_dir}/lib32
+    -
+      source: lib
+      link_name: ${fs_dir}/usr/lib32
+    -
+      source: ../share/terminfo
+      link_name: ${fs_dir}/usr/lib/terminfo
+    -
+      source: /tmp/dbus
+      link_name: ${fs_dir}/var/lib/dbus
+  fs_make_cmd:
+    - ${root_path}/vendor/ingenic/smartpen/system/rootfsimg_linux.sh ${fs_dir} ext4 350
+-
+  fs_dir_name: userfs
+  fs_dirs:
+    -
+      source_dir: obj/base/security/services/app_verify/config
+      target_dir: data/verify
+    -
+      source_dir: storage/etc
+      target_dir: etc
+    -
+      source_dir: data
+      target_dir: data
+    -
+      target_dir: app
+    -
+      target_dir: data/system/param
+  fs_make_cmd:
+    - ${root_path}/vendor/ingenic/smartpen/system/rootfsimg_linux.sh ${fs_dir} ext4 100
+  fs_attr:
+    tee_enable:
+      fs_dirs:
+        -
+          target_dir: data/sec_storage_data
+        -
+          target_dir: sec_storage

@@ -1,0 +1,83 @@
+-
+  fs_dir_name: rootfs
+  fs_dirs:
+    -
+      source_dir: buildroot-intermediate/target
+      target_dir: ../rootfs
+    -
+      source_dir: bin
+      target_dir: bin
+      ignore_files:
+        - Test.bin
+        - TestSuite.bin
+        - query.bin
+        - cve
+        - checksum
+      is_strip: TRUE
+    -
+      source_dir: usr/lib
+      target_dir: usr/lib
+      ignore_files:
+        - .a
+      is_strip: TRUE
+      dir_mode: 755
+      file_mode: 644
+    -
+      source_dir: config
+      target_dir: etc
+    -
+      source_dir: etc
+      target_dir: etc
+    -
+      source_dir: obj/foundation/distributedschedule/samgr_lite/config
+      target_dir: etc
+      ignore_files:
+        - .a
+      is_strip: TRUE
+      dir_mode: 755
+      file_mode: 644
+    -
+      target_dir: storage
+    -
+      target_dir: dev/root
+  fs_filemode:
+    -
+      file_dir: "lib/ld-2.26.so"
+      file_mode: 500
+    -
+      file_dir: "bin/shell"
+      file_mode: 500
+  fs_symlink:
+    -
+      source: busybox
+      link_name: ${fs_dir}/bin/shell
+    -
+      source: libstdc++.so.6.0.24
+      link_name: ${fs_dir}/usr/lib/libstdc++.so
+  fs_make_cmd:
+    - ${root_path}/build/lite/make_rootfs/rootfsimg_linux.sh ${fs_dir} ubifs
+-
+  fs_dir_name: userfs
+  fs_dirs:
+    -
+      source_dir: obj/base/security/services/app_verify/config
+      target_dir: data/verify
+    -
+      source_dir: storage/etc
+      target_dir: etc
+    -
+      source_dir: data
+      target_dir: data
+    -
+      target_dir: app
+    -
+      target_dir: data/system/param
+  fs_make_cmd:
+    - ${root_path}/build/lite/make_rootfs/rootfsimg_linux.sh ${fs_dir} ubifs
+  fs_attr:
+    tee_enable:
+      fs_dirs:
+        -
+          target_dir: data/sec_storage_data
+        -
+          target_dir: sec_storage

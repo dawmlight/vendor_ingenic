@@ -1,0 +1,44 @@
+#!/bin/sh
+case "$1" in
+	start)
+		echo "/usr/resource mount..."
+		echo "mount mmcblk0p6..."
+		while [ ! -b /dev/mmcblk0p6 ];do
+			echo "wait /dev/mmcblk0p6..."
+			wait
+		done
+		if [ ! -d "/usr/resource" ]; then
+			mkdir -p /usr/resource
+		fi
+		/bin/umount /usr/resource
+		#checkfs
+		#time e2fsck -y /dev/mmcblk0p6
+		/bin/mount -t ext4 -o defaults,noatime,nodiratime,nobarrier,discard /dev/mmcblk0p6 /usr/resource
+		if [ $? -ne 0 ]
+		then
+			echo "mke2fs -t ext4 /dev/mmcblk0p6"
+			/sbin/mke2fs /dev/mmcblk0p6
+			/bin/mount -t ext4 -o defaults,noatime,nodiratime,nobarrier,discard /dev/mmcblk0p6 /usr/resource
+		fi
+    	if [ ! -d /usr/resource/diandudata ]; then
+            mkdir -p /usr/resource/diandudata
+            cp -r /data/mpScan/diandu/* /usr/resource/diandudata/.
+        elif [ "`ls -A /usr/resource/diandudata`" = "" ]; then
+            cp -r /data/mpScan/diandu/* /usr/resource/diandudata/.
+        fi
+    	if [ ! -s /usr/resource/wpa_supplicant.conf ]; then
+            cp /etc/wpa_supplicant.conf /usr/resource/.
+        fi
+        echo "mount /usr/resource done"
+		;;
+	stop)
+		/bin/umount /usr/resource
+		;;
+	restart|reload)
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		;;
+esac
+
+exit $?

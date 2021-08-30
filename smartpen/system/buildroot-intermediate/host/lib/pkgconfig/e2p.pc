@@ -1,0 +1,11 @@
+prefix=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: e2p
+Description: Ext2fs userspace programs utility library
+Version: 1.45.6
+Requires: 
+Cflags: -I${includedir}/e2p -I${includedir}
+Libs: -L${libdir} -le2p

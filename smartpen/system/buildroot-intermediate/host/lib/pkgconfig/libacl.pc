@@ -1,0 +1,10 @@
+prefix=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name:		libacl
+Description:	A library for POSIX Access Control Lists
+Version:	2.2.53
+Cflags:		-I${includedir}
+Libs:		-L${libdir} -lacl

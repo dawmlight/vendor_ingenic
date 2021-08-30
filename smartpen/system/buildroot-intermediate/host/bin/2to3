@@ -1,0 +1,5 @@
+#!/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/python2.7
+import sys
+from lib2to3.main import main
+
+sys.exit(main("lib2to3.fixes"))

@@ -1,0 +1,251 @@
+# Copyright (C) 2012 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+on init
+   export LD_PRELOAD /usr/lib/libdebugger.so
+   start logd
+
+
+on property:init.svc.logd=stopped
+   start klogd
+on property:init.svc.klogd=stopped
+   start sysctrl
+on property:init.svc.sysctrl=stopped
+   start debuggerd
+   start urandom
+on property:init.svc.urandom=stopped
+   trigger boot
+
+on boot
+   start dbusd
+   start alsa
+   start network
+on property:init.svc.network=stopped
+   start wifi
+   start dnsservice
+   start servicemanager
+   trigger userboot
+
+
+on userboot
+   #start bluetooth
+   #start wpa
+   #start udhcpc
+   start mediaserver
+   start PowerManager
+   start smartUI
+   stop OcrServer
+   start packageInstall
+   #start ntpd
+   #stop wireless
+
+#on property:init.svc.bluetooth=running
+#    start wireless
+
+on property:init.svc.wpa=running
+    start udhcpc
+
+on property:init.svc.udhcpc=running
+    start ntpd
+
+on property:init.svc.updater=OK
+   start preupdate
+
+on property:init.svc.preupdate=stopped
+   start updateservice
+
+on property:init.svc.wifi=stopped
+    start bluetooth
+    start wpa
+   #start networkconfig
+
+#on property:init.svc.networkconfig=stopped
+#   stop network_manager
+
+service networkconfig /etc/init.d/S45network.sh
+        class core
+        oneshot
+        disabled
+
+#service network_manager /usr/sbin/network_manager -m sta -D
+#        class core
+#        disabled
+
+service preupdate /etc/init.d/S40copy_ota_res start
+	class core
+	disabled
+	oneshot
+	console
+
+service updateservice /usr/sbin/recovery
+	class core
+	disabled
+	oneshot
+	console
+
+service udhcpc /sbin/udhcpc -i wlan0 -x hostname:VT-S30
+	    class net
+		disabled
+		oneshot
+
+service servicemanager /usr/bin/servicemanager
+		class media
+		disabled
+
+service mediaserver /usr/bin/mediaserver
+		class media
+		disabled
+		#cgroup limit_in_bytes 5M
+		#cgroup swappiness 60
+		#cgroup cfs_quota_us 50000
+
+
+service bluetooth /usr/bin/bsa_server_mips -all=0 -r 14 -d /dev/ttyS0 -u /var/run/ -p /usr/data/firmware/btmodule.hcd
+		class bluetooth
+		disabled
+
+service wireless /usr/bin/WireLess
+        class bluetooth
+        disabled
+
+
+service wpa /usr/sbin/wpa_supplicant -Dnl80211 -iwlan0 -c/usr/resource/wpa_supplicant.conf
+		class net
+		disabled
+		oneshot
+
+service debuggerd /usr/bin/debuggerd
+	class core
+	disabled
+
+
+service adbd /usr/bin/adbd
+    class core
+    disabled
+
+service mtp /usr/bin/MtpService
+	class core
+	disabled
+
+
+
+service logd /etc/init.d/S01syslogd start
+	class log
+	disabled
+	oneshot
+
+service klogd /etc/init.d/S02klogd start
+	class log
+	disabled
+	oneshot
+
+
+service sysctrl /etc/init.d/S02sysctl start
+	class log
+	disabled
+	oneshot
+
+service urandom /etc/init.d/S20urandom start
+	class device
+	disabled
+	oneshot
+
+service dbusd /etc/init.d/S30dbus start
+	class core
+	oneshot
+	disabled
+
+service network /etc/init.d/S40network start
+	class core
+	oneshot
+	disabled
+
+service alsa /etc/init.d/S31alsaloop start
+	class core
+	oneshot
+	disabled
+
+service wifi /etc/init.d/S41network_firmware start
+	class core
+	oneshot
+	disabled
+
+service dnsservice /etc/init.d/S80dnsmasq start
+	class core
+	disabled
+	oneshot
+
+service PowerManager /usr/bin/PowerManager
+	socket PowerLock stream 0666 root root
+	class main
+	disabled
+
+#service smartUI /usr/bin/smartUI/bin/smartUI
+#service smartUI /usr/bin/textdemo/bin/textdemo
+service smartUI /usr/bin/mp_s300/bin/mp_s300
+	socket Input stream 0666 root root
+	class main
+	disabled
+
+#	cgroup limit_in_bytes 40M
+#	cgroup swappiness 90
+#	#cgroup cfs_quota_us 50000
+
+service OcrServer /usr/bin/stream_ocr
+	socket OcrServer stream 0666 root root
+	class main
+	disabled
+
+service ntpd /etc/init.d/S49ntp start
+	class main
+    oneshot
+	disabled
+
+service usbrecfg /usr/bin/usbconfig.sh restart
+	class core
+	disabled
+	oneshot
+
+service usbcfg /usr/bin/usbconfig.sh start
+	class core
+	disabled
+	oneshot
+
+service usbucfg /usr/bin/usbconfig.sh stop
+	class core
+	disabled
+	oneshot
+
+service packageInstall /etc/init.d/S96pinstall.sh start
+	class core
+	disabled
+	oneshot
+
+on property:sys.usb.state=adb
+   start adbd
+   start mtp
+
+on property:sys.usb.state=mtp
+   start mtp
+   stop adbd
+
+on property:sys.usb.state=none
+   stop adbd
+   stop mtp
+
+on property:sys.usb.config=adb
+   start usbcfg
+
+on property:sys.usb.config=none
+   start usbucfg
+
+on property:sys.usb.config=mtp
+   start usbcfg
+
+on property:user.usb.config=mtp
+   start usbrecfg
+
+on property:user.usb.config=adb
+   start usbrecfg

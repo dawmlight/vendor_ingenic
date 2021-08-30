@@ -1,0 +1,106 @@
+{
+    "product_name": "smartpen_x2000_mmc",
+    "ohos_version": "OpenHarmony 1.0",
+    "device_company": "ingenic",
+    "board": "x2000",
+    "kernel_type": "linux",
+    "kernel_version": "5.10",
+    "subsystems": [
+      {
+        "subsystem": "aafwk",
+        "components": [
+          { "component": "aafwk_lite", "features":[ "enable_ohos_appexecfwk_feature_ability = false" ] }
+        ]
+      },
+      {
+        "subsystem": "hiviewdfx",
+        "components": [
+          { "component": "hilog", "features":[] }
+        ]
+      },
+      {
+        "subsystem": "distributed_schedule",
+        "components": [
+          { "component": "samgr_lite", "features":[] },
+          { "component": "safwk_lite", "features":[] },
+          { "component": "dmsfwk_lite", "features":[] }
+        ]
+      },
+      {
+        "subsystem": "security",
+        "components": [
+          { "component": "hichainsdk", "features":[] },
+          { "component": "permission", "features":[] },
+          { "component": "appverify", "features":[] },
+          { "component": "mbedtls", "features":[] }
+        ]
+      },
+      {
+        "subsystem": "startup",
+        "components": [
+          { "component": "syspara_lite", "features":[] },
+          { "component": "bootstrap_lite", "features":[] },
+          { "component": "init_lite", "features":[] },
+          { "component": "appspawn_lite", "features":[] }
+        ]
+      },
+      {
+        "subsystem": "uboot",
+        "components": [
+          { "component": "uboot_lite", "features":[] }
+        ]
+      },
+      {
+        "subsystem": "kernel",
+        "components": [
+          { "component": "linux_5_10", "features":[] }
+        ]
+      },
+      {
+        "subsystem": "communication",
+        "components": [
+          { "component": "ipc_lite", "features":[] },
+          { "component": "softbus_lite", "features":[] },
+          { "component": "wifi_lite", "features":[] },
+          { "component": "bluetooth", "features":[] }
+        ]
+      },
+      {
+        "subsystem":"test",
+        "components":[
+          {"component": "developer_test", "features":[]},
+          {"component": "xts_acts", "features":[]},
+          {"component": "xts_tools", "features":[]}
+        ]
+      },
+      {
+        "subsystem": "appexecfwk",
+        "components": [
+          { "component": "appexecfwk_lite", "features":[] }
+        ]
+      },
+      {
+        "subsystem": "utils",
+        "components": [
+          { "component": "kv_store", "features":[] },
+          { "component": "os_dump", "features":[] }
+        ]
+      }
+    ],
+    "vendor_adapter_dir": "//device/ingenic/x2000/hardware",
+    "third_party_dir": "//third_party",
+    "product_adapter_dir": "//vendor/ingenic/smartpen/hals",
+    "ohos_product_type":"",
+    "ohos_manufacture":"",
+    "ohos_brand":"",
+    "ohos_market_name":"",
+    "ohos_product_series":"",
+    "ohos_product_model":"",
+    "ohos_software_model":"",
+    "ohos_hardware_model":"",
+    "ohos_hardware_profile":"",
+    "ohos_serial":"",
+    "ohos_bootloader_version":"",
+    "ohos_secure_patch_level":"",
+    "ohos_abi_list":""
+  }
