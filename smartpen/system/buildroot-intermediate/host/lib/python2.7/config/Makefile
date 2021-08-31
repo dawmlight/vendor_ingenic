@@ -28,8 +28,8 @@ MODLIBS=        $(LOCALMODLIBS) $(BASEMODLIBS)
 VERSION=	2.7
 srcdir=		.
 
-abs_srcdir=	/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/build/host-python-2.7.18
-abs_builddir=	/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/build/host-python-2.7.18
+abs_srcdir=	/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/build/host-python-2.7.18
+abs_builddir=	/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/build/host-python-2.7.18
 build=		x86_64-pc-linux-gnu
 host=		x86_64-pc-linux-gnu
 
@@ -73,12 +73,12 @@ MAKESETUP=      $(srcdir)/Modules/makesetup
 # Compiler options
 OPT=		-DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes
 BASECFLAGS=	 -fno-strict-aliasing
-CFLAGS=		$(BASECFLAGS) -O2 -I/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include $(OPT) $(EXTRA_CFLAGS)
+CFLAGS=		$(BASECFLAGS) -O2 -I/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include $(OPT) $(EXTRA_CFLAGS)
 # Both CPPFLAGS and LDFLAGS need to contain the shell's value for setup.py to
 # be able to build extension modules using the directories specified in the
 # environment variables
-CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include -I/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include
-LDFLAGS=	-L/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,-rpath,/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,--enable-new-dtags
+CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include -I/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include
+LDFLAGS=	-L/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,-rpath,/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,--enable-new-dtags
 LDLAST=		
 SGI_ABI=	
 CCSHARED=	-fPIC
@@ -97,7 +97,7 @@ MACHDEP=	linux2
 MULTIARCH=	x86_64-linux-gnu
 
 # Install prefix for architecture-independent files
-prefix=		/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
+prefix=		/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
 
 # Install prefix for architecture-dependent files
 exec_prefix=	${prefix}
@@ -147,7 +147,7 @@ MACOSX_DEPLOYMENT_TARGET=
 OTHER_LIBTOOL_OPT=
 
 # Environment to run shared python without installed libraries
-RUNSHARED=       LD_LIBRARY_PATH=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/build/host-python-2.7.18
+RUNSHARED=       LD_LIBRARY_PATH=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/build/host-python-2.7.18
 
 # ensurepip options
 ENSUREPIP=      no
@@ -159,7 +159,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--prefix=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host' '--sysconfdir=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/etc' '--localstatedir=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/var' '--enable-shared' '--disable-static' '--disable-gtk-doc' '--disable-gtk-doc-html' '--disable-doc' '--disable-docs' '--disable-documentation' '--disable-debug' '--with-xmlto=no' '--with-fop=no' '--disable-nls' '--disable-dependency-tracking' '--enable-static' '--without-cxx-main' '--disable-sqlite3' '--disable-tk' '--with-expat=system' '--disable-curses' '--disable-codecs-cjk' '--disable-nis' '--enable-unicodedata' '--disable-dbm' '--disable-gdbm' '--disable-bsddb' '--disable-test-modules' '--disable-bz2' '--disable-ossaudiodev' '--disable-pyo-build' '--disable-ssl' 'CC=/usr/bin/gcc' 'CFLAGS=-O2 -I/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include' 'LDFLAGS=-L/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,-rpath,/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,--enable-new-dtags' 'CPPFLAGS=-I/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include' 'CPP=/usr/bin/cpp' 'PKG_CONFIG=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/pkg-config' 'PKG_CONFIG_LIBDIR=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib/pkgconfig:/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/pkgconfig'
+CONFIG_ARGS=	 '--prefix=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host' '--sysconfdir=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/etc' '--localstatedir=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/var' '--enable-shared' '--disable-static' '--disable-gtk-doc' '--disable-gtk-doc-html' '--disable-doc' '--disable-docs' '--disable-documentation' '--disable-debug' '--with-xmlto=no' '--with-fop=no' '--disable-nls' '--disable-dependency-tracking' '--enable-static' '--without-cxx-main' '--disable-sqlite3' '--disable-tk' '--with-expat=system' '--disable-curses' '--disable-codecs-cjk' '--disable-nis' '--enable-unicodedata' '--disable-dbm' '--disable-gdbm' '--disable-bsddb' '--disable-test-modules' '--disable-bz2' '--disable-ossaudiodev' '--disable-pyo-build' '--disable-ssl' 'CC=/usr/bin/gcc' 'CFLAGS=-O2 -I/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include' 'LDFLAGS=-L/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,-rpath,/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,--enable-new-dtags' 'CPPFLAGS=-I/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include' 'CPP=/usr/bin/cpp' 'PKG_CONFIG=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/pkg-config' 'PKG_CONFIG_LIBDIR=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib/pkgconfig:/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/pkgconfig'
 
 # disabled extensions
 DISABLED_EXTENSIONS=	 _sqlite3 _codecs_kr _codecs_jp _codecs_cn _codecs_tw _codecs_hk nis _ssl bz2 dbm gdbm _bsddb _tkinter _curses _curses_panel ossaudiodev

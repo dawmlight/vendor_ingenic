@@ -1,1 +1,1 @@
-set sysroot /home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/mipsel-buildroot-linux-gnu/sysroot
+set sysroot /home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/mipsel-buildroot-linux-gnu/sysroot

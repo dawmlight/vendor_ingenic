@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This script first starts faked (the daemon), and then it will run
 # the requested program with fake root privileges.
@@ -30,12 +30,12 @@ fatal ()
 }
 
 # strip /bin/fakeroot to find install prefix
-FAKEROOT_PREFIX=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
-FAKEROOT_BINDIR=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin
+FAKEROOT_PREFIX=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
+FAKEROOT_BINDIR=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin
 
 USEABSLIBPATH=0
 LIB=libfakeroot.so
-PATHS=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib:${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
+PATHS=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib:${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
 FAKED=${FAKEROOT_BINDIR}/faked
 
 FAKED_MODE="unknown-is-root"

@@ -45,18 +45,6 @@
         ]
       },
       {
-        "subsystem": "uboot",
-        "components": [
-          { "component": "uboot_lite", "features":[] }
-        ]
-      },
-      {
-        "subsystem": "kernel",
-        "components": [
-          { "component": "linux_5_10", "features":[] }
-        ]
-      },
-      {
         "subsystem": "communication",
         "components": [
           { "component": "ipc_lite", "features":[] },

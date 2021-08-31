@@ -1,0 +1,7 @@
+copy("smartpen_images") {
+    sources = [
+      "uboot",
+      "xImage",
+    ]
+    outputs = [ "$root_out_dir/{{source_file_part}}" ]
+}

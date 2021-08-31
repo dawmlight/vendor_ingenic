@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # $Id: ncurses-config.in,v 1.42 2019/12/25 00:54:55 tom Exp $
 ##############################################################################
 # Copyright (c) 2006-2018,2019 Free Software Foundation, Inc.                #
@@ -133,7 +133,7 @@ do
 	lib_flags="$lib_flags $opt"
 done
 
-[ $# = 0 ] && exec /bin/sh $0 --error
+[ $# = 0 ] && exec /bin/bash $0 --error
 
 while [ $# -gt 0 ]; do
 	case "$1" in
@@ -281,7 +281,7 @@ Options:
 ENDHELP
 		;;
 	--error|*)
-		/bin/sh $0 --help 1>&2
+		/bin/bash $0 --help 1>&2
 		exit 1
 		;;
 	esac

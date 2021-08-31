@@ -3,7 +3,7 @@
 #
 
 AWK=mawk
-DIR=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/et
+DIR=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/et
 
 if test "$1" = "--build-tree" ; then
     shift;

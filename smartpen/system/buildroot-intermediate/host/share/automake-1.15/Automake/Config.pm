@@ -32,7 +32,7 @@ our $PACKAGE = 'automake';
 our $PACKAGE_BUGREPORT = 'bug-automake@gnu.org';
 our $VERSION = '1.15.1';
 our $RELEASE_YEAR = '2017';
-our $libdir = '/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/automake-1.15';
+our $libdir = '/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/automake-1.15';
 
 our $perl_threads = 0;
 # We need at least this version for CLONE support.

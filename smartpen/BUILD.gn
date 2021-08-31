@@ -1,6 +1,7 @@
 group("smartpen") {
   deps = [
     "init_configs",
+    "smartpen_images",
     "system",
   ]
   print("Ingenic smartpen is under devloping.")

@@ -34,7 +34,7 @@ snap_size_mb=256
 fstrim=0
 reap=0
 e2fsck_opts=""
-conffile="/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/etc/e2scrub.conf"
+conffile="/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/etc/e2scrub.conf"
 
 test -f "${conffile}" && . "${conffile}"
 
@@ -187,16 +187,16 @@ check() {
 	# non-zero status (errors fixed or remaining) then this fs is bad.
 	E2FSCK_FIXES_ONLY=1
 	export E2FSCK_FIXES_ONLY
-	${DBG} "/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/sbin/e2fsck" -E journal_only -p ${e2fsck_opts} "${snap_dev}" || return $?
-	${DBG} "/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/sbin/e2fsck" -f -y ${e2fsck_opts} "${snap_dev}"
+	${DBG} "/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/sbin/e2fsck" -E journal_only -p ${e2fsck_opts} "${snap_dev}" || return $?
+	${DBG} "/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/sbin/e2fsck" -f -y ${e2fsck_opts} "${snap_dev}"
 }
 
 mark_clean() {
-	${DBG} "/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/sbin/tune2fs" -C 0 -T "${start_time}" "${dev}"
+	${DBG} "/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/sbin/tune2fs" -C 0 -T "${start_time}" "${dev}"
 }
 
 mark_corrupt() {
-	${DBG} "/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/sbin/tune2fs" -E force_fsck "${dev}"
+	${DBG} "/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/sbin/tune2fs" -E force_fsck "${dev}"
 }
 
 setup() {
