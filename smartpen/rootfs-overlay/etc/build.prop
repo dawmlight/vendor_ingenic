@@ -1,0 +1,6 @@
+sys.usb.config=adb
+user.usb.config=adb
+sys.usb.state=none
+ocr.savePato.flag=0
+ocr.saveWordLine.flag=0
+ocr.interData.flag=0

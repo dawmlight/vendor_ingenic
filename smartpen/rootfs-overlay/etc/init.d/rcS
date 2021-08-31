@@ -1,0 +1,71 @@
+#!/bin/sh
+
+# Startup the system
+/bin/mount -t proc proc /proc
+/bin/mount -o remount,rw /
+/bin/rm -rf /dev/*
+/bin/mkdir -p /dev/pts /dev/shm
+/bin/mount -a
+/sbin/swapon -a
+/bin/ln -sf /proc/self/fd /dev/fd
+/bin/ln -sf /proc/self/fd/0 /dev/stdin
+/bin/ln -sf /proc/self/fd/1 /dev/stdout
+/bin/ln -sf /proc/self/fd/2 /dev/stderr
+/bin/hostname -F /etc/hostname
+# # now run any rc scripts
+# ::sysinit:/etc/init.d/rcS
+#
+# # Put a getty on the serial port
+# ::respawn:-/bin/sh # GENERIC_SERIAL
+#
+# # Stuff to do for the 3-finger salute
+# #::ctrlaltdel:/sbin/reboot
+#
+# # Stuff to do before rebooting
+# ::shutdown:/etc/init.d/rcK
+# ::shutdown:/sbin/swapoff -a
+# ::shutdown:/bin/umount -a -r
+#
+
+
+/etc/init.d/S10mdev start
+ifconfig lo 127.0.0.1 up
+/etc/init.d/S13swap start
+/etc/init.d/S12storage start
+/etc/init.d/S21data start
+/etc/init.d/S23resource start
+#zhiquan.huang add
+/etc/init.d/S82ohos start
+
+## show logo
+#/usr/bin/fbshow /logo.jpg /dev/fb0
+#ulimit -c unlimited
+#echo "/storage/%e.%p.%t.core" > /proc/sys/kernel/core_pattern
+
+
+## systemservice parse config: /etc/init.rc
+/bin/mkdir -p /dev/socket
+/bin/echo 128 > /sys/module/isp_video/parameters/isp_max_buffer_num
+/usr/bin/systemservice > /dev/null &
+
+
+# for i in /etc/init.d/S??* ;do
+
+#      # Ignore dangling symlinks (if any).
+#      [ ! -f "$i" ] && continue
+
+#      case "$i" in
+# 	*.sh)
+# 	    # Source shell script for speed.
+# 	    (
+# 		trap - INT QUIT TSTP
+# 		set start
+# 		. $i
+# 	    )
+# 	    ;;
+# 	*)
+# 	    # No sh extension, so fork subprocess.
+# 	    $i start
+# 	    ;;
+#     esac
+# done

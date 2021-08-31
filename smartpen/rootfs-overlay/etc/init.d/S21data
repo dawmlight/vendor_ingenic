@@ -1,0 +1,49 @@
+#!/bin/sh
+case "$1" in
+	start)
+		echo "/usr/data mount..."
+		echo "mount mmcblk0p7..."
+		while [ ! -b /dev/mmcblk0p7 ];do
+			echo "wait /dev/mmcblk0p7..."
+			wait
+		done
+		if [ ! -d "/usr/data" ]; then
+			mkdir -p /usr/data
+		fi
+		/bin/umount /usr/data
+		#checkfs
+		#time e2fsck -y /dev/mmcblk0p7
+		/bin/mount -t ext4 -o defaults,noatime,nodiratime,nobarrier,discard /dev/mmcblk0p7 /usr/data
+		if [ $? -ne 0 ]
+		then
+			echo "mke2fs -t ext4 /dev/mmcblk0p7"
+			/sbin/mke2fs /dev/mmcblk0p7
+			/bin/mount -t ext4 -o defaults,noatime,nodiratime,nobarrier,discard /dev/mmcblk0p7 /usr/data
+		else
+			rm  /usr/data/database/mtp.db
+		fi
+        mname=$(cat /sys/class/net/wlan0/wlan_name)
+        mkdir -p /usr/data/firmware
+        if [ $mname == "256" ]
+        then
+            cp -r /firmware/BCM43455_003.001.025.0160.0303.hcd /usr/data/firmware/btmodule.hcd
+        elif [ $mname == "372" ]
+        then
+            cp -r /firmware/BCM43438A1.hcd /usr/data/firmware/btmodule.hcd
+        else
+            cp -r /firmware/BCM43455_003.001.025.0160.0303.hcd /usr/data/firmware/btmodule.hcd
+            echo "wifi module init file, pls check it!!!"
+        fi
+		echo "mount /usr/data done"
+		;;
+	stop)
+		/bin/umount /usr/data
+		;;
+	restart|reload)
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		;;
+esac
+
+exit $?

@@ -1,0 +1,5 @@
+#!/bin/sh
+rm -rf /storage/update
+mkdir -p /storage/update
+mv /storage/mtp/update.zip /storage/update/.
+setprop init.svc.updater OK

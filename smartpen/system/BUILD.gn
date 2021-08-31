@@ -1,0 +1,4 @@
+copy("system") {
+  sources = [ "buildroot-intermediate" ]
+  outputs = [ "$root_out_dir/buildroot-intermediate" ]
+}

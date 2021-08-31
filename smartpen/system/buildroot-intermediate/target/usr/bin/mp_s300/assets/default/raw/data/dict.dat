@@ -1,0 +1,23 @@
+[
+    {
+		"model": "VT-S30",
+		"defaultEnDict": "2c94811c76b2ac790176b7baf5560014",
+		"defaultZhDict": "2c94811c76b2ac790176b7baf5560013",
+		"listEnDict": ["2c94811c76b2ac790176b7baf5560012", "2c94811c76b2ac790176b7baf5560014"],
+		"listZhDict": ["2c94811c76b2ac790176b7baf5560013"]
+	},
+	{
+		"model": "VT-S30_Hilink",
+		"defaultEnDict": "2c94811c76b2ac790176b7baf5560014",
+		"defaultZhDict": "2c94811c76b2ac790176b7baf5560013",
+		"listEnDict": ["2c94811c76b2ac790176b7baf5560012", "2c94811c76b2ac790176b7baf5560014"],
+		"listZhDict": ["2c94811c76b2ac790176b7baf5560013"]
+	},
+	{
+		"model": "MP-T30",
+		"defaultEnDict": "2c9483b1788cda4b01788d5edda50029",
+		"defaultZhDict": "2c9483b1788cda4b01788d5edda50027",
+		"listEnDict": ["2c9483b1788cda4b01788d5edda50029", "2c9483b1788cda4b01788d5edda6002a"],
+		"listZhDict": ["2c9483b1788cda4b01788d5edda50027", "2c9483b1788cda4b01788d5edda50028"]
+	}
+]

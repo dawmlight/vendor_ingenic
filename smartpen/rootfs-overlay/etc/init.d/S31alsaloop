@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# Start alsa loop deamon ....
+#
+
+case "$1" in
+  start)
+	  amixer cset name='LO0_MUX' LI8
+      # icodec
+	  amixer cset name='LO6_MUX' LI2
+      # bluetooth
+	  amixer cset name='LO7_MUX' LI6
+	amixer cset name='LO1_MUX' LI9
+      # dmic
+	amixer  cset name='LO5_MUX' LI0
+	amixer  cset name='DMIC Volume' 10
+      #  alsaloop -C default -P system -f S16_LE -c 2 -r 44100 -t 500000 -n -a 1 &
+	;;
+  stop)
+        killall alsaloop
+	;;
+  system)
+        killall alsaloop
+#	alsaloop -C default -P system -f S16_LE -c 2 -r 44100 -t 500000 -n -a 1 &
+	;;
+  bluetooth)
+        killall alsaloop
+ # 	alsaloop -C default -P shmc -f S16_LE -c 2 -r 44100 -t 500000 -n -a 1 &
+        ;;	
+	  
+  restart|reload)
+        killall alsaloop
+  #      alsaloop  -C default -P system -f S16_LE -c 2 -r 44100 -t 500000 -n -a 1 &
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart|system|bluttooth}"
+	exit 1
+esac
+
+exit $?

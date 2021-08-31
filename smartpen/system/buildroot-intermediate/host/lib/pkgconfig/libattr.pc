@@ -1,0 +1,10 @@
+prefix=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name:		libattr
+Description:	A library for filesystem extended attribute support
+Version:	2.4.48
+Cflags:		-I${includedir}
+Libs:		-L${libdir} -lattr

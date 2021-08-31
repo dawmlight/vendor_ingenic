@@ -1,0 +1,4 @@
+copy("init_configs") {
+  sources = [ "init_linux_5_10_x2000.cfg" ]
+  outputs = [ "$root_out_dir/etc/init.cfg" ]
+}
