@@ -1,6 +1,6 @@
-diff -Nrdup a/build/lite/components/security.json b/build/lite/components/security.json
---- a/security.json	2021-09-01 09:34:31.722275282 +0800
-+++ b/security.json	2021-09-01 09:34:06.161657590 +0800
+diff -Nrdup a/security.json b/security.json
+--- a/security.json	2021-09-01 12:54:40.185785677 +0800
++++ b/security.json	2021-09-01 12:55:02.386231024 +0800
 @@ -231,6 +231,26 @@
          ],
          "components": []
