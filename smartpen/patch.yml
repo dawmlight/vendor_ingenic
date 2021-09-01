@@ -1,0 +1,7 @@
+base/startup/init_lite/services:
+  - vendor/ingenic/smartpen/patch/base.patch
+build/lite/components:
+  - vendor/ingenic/smartpen/patch/build.patch
+third_party/mbedtls:
+  - vendor/ingenic/smartpen/patch/mbedtls.patch
+
