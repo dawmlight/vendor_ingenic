@@ -31,7 +31,7 @@ use strict;
 
 BEGIN
 {
-  @Automake::perl_libdirs = ('/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/automake-1.15')
+  @Automake::perl_libdirs = ('/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/automake-1.15')
     unless @Automake::perl_libdirs;
   unshift @INC, @Automake::perl_libdirs;
 
@@ -42,7 +42,7 @@ BEGIN
   # it turns up other systems need the same thing.  After all,
   # if SHELL is used, ./configure's SHELL is always better than
   # the user's SHELL (which may be something like tcsh).
-  $ENV{'SHELL'} = '/bin/sh' if exists $ENV{'DJDIR'};
+  $ENV{'SHELL'} = '/bin/bash' if exists $ENV{'DJDIR'};
 }
 
 use Automake::Config;

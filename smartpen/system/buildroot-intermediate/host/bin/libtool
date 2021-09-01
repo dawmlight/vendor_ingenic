@@ -1,6 +1,6 @@
-#! /bin/sh
+#! /bin/bash
 # Generated automatically by config.status (libtool) 2.4.6
-# Libtool was configured on host cefd5fe87513:
+# Libtool was configured on host f9f254c60b9d:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 
 # Provide generalized library-building support services.
@@ -66,7 +66,7 @@ fast_install=needless
 shared_archive_member_spec=
 
 # Shell to use when invoking shell scripts.
-SHELL="/bin/sh"
+SHELL="/bin/bash"
 
 # An echo program that protects backslashes.
 ECHO="printf %s\\n"
@@ -168,7 +168,7 @@ lock_old_archive_extraction=no
 LTCC="/usr/bin/gcc"
 
 # LTCC compiler flags.
-LTCFLAGS="-O2 -I/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include"
+LTCFLAGS="-O2 -I/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include"
 
 # Take the output of nm and produce a listing of raw symbols and C names.
 global_symbol_pipe="sed -n -e 's/^.*[	 ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[	 ][	 ]*\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2 \\2/p' | sed '/ __gnu_lto/d'"

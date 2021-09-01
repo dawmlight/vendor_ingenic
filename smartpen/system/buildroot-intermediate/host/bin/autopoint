@@ -1,5 +1,5 @@
 #!/bin/sh
-m4src=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/gettext-tiny/m4
+m4src=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/gettext-tiny/m4
 
 if ! test -e configure.ac ; then
 	echo "$0: error: configure.ac not found" >&2
@@ -23,15 +23,15 @@ do
   if [ "${line##*po/Makefile.in}" != "$line" ]; then
     poprefix="${line##*[}"
     poprefix="${poprefix%%po/Makefile.in*}"
-    install -D -m 644 /home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/gettext-tiny/data/autopoint_Makefile.in "./${poprefix}/po/Makefile.in.in"
+    install -D -m 644 /home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/gettext-tiny/data/autopoint_Makefile.in "./${poprefix}/po/Makefile.in.in"
   fi
 done < "configure.ac"
 
 touch "./${dirprefix}/config.rpath" ABOUT-NLS
 
 for i in intl/Makefile.in po/Makefile.in.in ; do
-	install -D -m 644 /home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/gettext-tiny/data/autopoint_Makefile.in "$i"
+	install -D -m 644 /home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/gettext-tiny/data/autopoint_Makefile.in "$i"
 done
 
-install -D -m 644 /home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/gettext-tiny/data/Makevars.template po/Makevars.template
+install -D -m 644 /home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/gettext-tiny/data/Makevars.template po/Makevars.template
 true

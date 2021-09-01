@@ -20,7 +20,7 @@ installed_prefix ()
 	echo $RESULT
 }
 
-prefix_build="/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host"
+prefix_build="/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host"
 prefix_real=$(installed_prefix "$0")
 
 # Use sed to fix paths from their built to locations to their installed to locations.
@@ -29,7 +29,7 @@ exec_prefix_build="${prefix}"
 exec_prefix=$(echo "$exec_prefix_build" | sed "s#$exec_prefix_build#$prefix_real#")
 includedir=$(echo "${prefix}/include")
 libdir=$(echo "${exec_prefix}/lib" | sed "s#$prefix_build#$prefix_real#")
-CFLAGS=$(echo "-O2 -I/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include" | sed "s#$prefix_build#$prefix_real#")
+CFLAGS=$(echo "-O2 -I/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/include" | sed "s#$prefix_build#$prefix_real#")
 VERSION="2.7"
 LIBM="-lm"
 LIBC=""
@@ -42,7 +42,7 @@ OPT="-DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes"
 PY_ENABLE_SHARED="1"
 LDVERSION="@LDVERSION@"
 LIBDEST=${prefix}/lib/python${VERSION}
-LIBPL=$(echo "/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib/python2.7/config" | sed "s#$prefix_build#$prefix_real#")
+LIBPL=$(echo "/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib/python2.7/config" | sed "s#$prefix_build#$prefix_real#")
 SO=".so"
 PYTHONFRAMEWORK=""
 INCDIR="-I$includedir/python${VERSION}"

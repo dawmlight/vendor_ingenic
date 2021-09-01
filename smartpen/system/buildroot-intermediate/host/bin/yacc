@@ -100,7 +100,7 @@ func_find_prefixes ()
   done
 }
 if test "no" = yes; then
-  prefix="/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host"
+  prefix="/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host"
   exec_prefix="${prefix}"
   bindir="${exec_prefix}/bin"
   orig_installdir="$bindir" # see Makefile.am's *_SCRIPTS variables
@@ -117,7 +117,7 @@ else
   }
 fi
 
-prefix=/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
+prefix=/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host
 exec_prefix=${prefix}
 bindir=`relocate "${exec_prefix}/bin"`
 exec "$bindir/bison" -y "$@"

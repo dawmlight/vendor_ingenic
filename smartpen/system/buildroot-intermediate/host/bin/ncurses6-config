@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # $Id: ncurses-config.in,v 1.42 2019/12/25 00:54:55 tom Exp $
 ##############################################################################
 # Copyright (c) 2006-2018,2019 Free Software Foundation, Inc.                #
@@ -35,7 +35,7 @@ LANGUAGE=C;	export LANGUAGE
 LC_ALL=C;	export LC_ALL
 LC_CTYPE=C;	export LC_CTYPE
 
-prefix="/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host"
+prefix="/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host"
 exec_prefix="${prefix}"
 
 bindir="${exec_prefix}/bin"
@@ -100,7 +100,7 @@ fi
 # There is no portable way to find the list of standard library directories. 
 # Require a POSIX shell anyway, to keep this simple.
 lib_flags=
-for opt in -L$libdir -L/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,-rpath,/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib  $LIBS
+for opt in -L$libdir -L/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib -Wl,-rpath,/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/lib  $LIBS
 do
 	case $opt in
 	-specs*) # ignore linker specs-files which were used to build library
@@ -133,7 +133,7 @@ do
 	lib_flags="$lib_flags $opt"
 done
 
-[ $# = 0 ] && exec /bin/sh $0 --error
+[ $# = 0 ] && exec /bin/bash $0 --error
 
 while [ $# -gt 0 ]; do
 	case "$1" in
@@ -243,7 +243,7 @@ ENDECHO
 		echo "/usr/share/terminfo"
 		;;
 	--terminfo-dirs)
-		echo "/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/terminfo"
+		echo "/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/terminfo"
 		;;
 	--termpath)
 		echo ""
@@ -281,7 +281,7 @@ Options:
 ENDHELP
 		;;
 	--error|*)
-		/bin/sh $0 --help 1>&2
+		/bin/bash $0 --help 1>&2
 		exit 1
 		;;
 	esac

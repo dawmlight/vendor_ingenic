@@ -10,5 +10,5 @@ Requires:
 Requires.private: libswresample >= 3.5.100, libavutil >= 56.31.100
 Conflicts:
 Libs: -L${libdir}  -lavcodec 
-Libs.private: -pthread -lm -lopencore-amrwb -lmp3lame -lm -L/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/../mipsel-buildroot-linux-gnu/sysroot/usr/lib -lopus -L/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/../mipsel-buildroot-linux-gnu/sysroot/usr/lib -lspeex -lvo-amrwbenc
+Libs.private: -pthread -lm -lopencore-amrwb -lmp3lame -lm -L/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/../mipsel-buildroot-linux-gnu/sysroot/usr/lib -lopus -L/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/../mipsel-buildroot-linux-gnu/sysroot/usr/lib -lspeex -lvo-amrwbenc
 Cflags: -I${includedir}

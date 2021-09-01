@@ -28,14 +28,14 @@ eval 'case $# in 0) exec /usr/bin/perl -S "$0";; *) exec /usr/bin/perl -S "$0" "
 
 BEGIN
 {
-  my $pkgdatadir = $ENV{'autom4te_perllibdir'} || '/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/autoconf';
+  my $pkgdatadir = $ENV{'autom4te_perllibdir'} || '/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/share/autoconf';
   unshift @INC, "$pkgdatadir";
 
   # Override SHELL.  On DJGPP SHELL may not be set to a shell
   # that can handle redirection and quote arguments correctly,
   # e.g.: COMMAND.COM.  For DJGPP always use the shell that configure
   # has detected.
-  $ENV{'SHELL'} = '/bin/sh' if ($^O eq 'dos');
+  $ENV{'SHELL'} = '/bin/bash' if ($^O eq 'dos');
 }
 
 use Autom4te::ChannelDefs;
@@ -50,7 +50,7 @@ use strict;
 use vars qw ($config_h %verbatim %symbol);
 
 # Lib files.
-my $autom4te = $ENV{'AUTOM4TE'} || '/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/autom4te';
+my $autom4te = $ENV{'AUTOM4TE'} || '/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/autom4te';
 local $config_h;
 my $config_h_in;
 my @prepend_include;

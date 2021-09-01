@@ -1,4 +1,4 @@
-#!/home/openharmony/openharmony-2.3/hm/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/python2.7
+#!/home/openharmony/openharmony-2.2beta2-1/openharmony-2.2beta2/out/x2000/smartpen_x2000_mmc/buildroot-intermediate/host/bin/python2.7
 """An RFC 2821 smtp proxy.
 
 Usage: %(program)s [options] [localhost:localport [remotehost:remoteport]]
