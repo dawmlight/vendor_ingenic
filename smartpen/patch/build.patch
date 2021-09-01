@@ -1,0 +1,30 @@
+diff -Nrdup a/build/lite/components/security.json b/build/lite/components/security.json
+--- a/security.json	2021-09-01 09:34:31.722275282 +0800
++++ b/security.json	2021-09-01 09:34:06.161657590 +0800
+@@ -231,6 +231,26 @@
+         ],
+         "components": []
+       }
++    },
++    {
++       "component": "mbedtls",
++       "description": "mbedtls open sources software.",
++       "optional": "true",
++       "dirs": ["third_party/mbedtls"],
++       "targets": [
++            "//third_party/mbedtls:mbedtls"
++        ],
++       "rom": "",
++       "ram": "",
++       "output": [ "mbedtls_share" ],
++       "adapted_kernel": [ "liteos_a", "linux" ],
++       "features": [],
++       "deps": {
++         "third_party":[],
++         "kernel_special": {},
++         "board_special": {},
++         "components": []
++      }
+     }
+   ]
+ }
