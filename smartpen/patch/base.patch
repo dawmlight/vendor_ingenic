@@ -1,6 +1,6 @@
-diff -Nrdup a/base/startup/init_lite/services/BUILD.gn b/base/startup/init_lite/services/BUILD.gn
---- a/BUILD.gn	2021-09-01 10:08:44.929041134 +0800
-+++ b/BUILD.gn	2021-09-01 10:07:28.513399664 +0800
+diff -Nrdup a/BUILD.gn b/BUILD.gn
+--- a/BUILD.gn	2021-09-01 12:51:12.369601814 +0800
++++ b/BUILD.gn	2021-09-01 12:51:32.106000486 +0800
 @@ -68,10 +68,6 @@ if (defined(ohos_lite)) {
          "-lm",
          "-lpthread",
@@ -12,9 +12,9 @@ diff -Nrdup a/base/startup/init_lite/services/BUILD.gn b/base/startup/init_lite/
      }
    }
 
-diff -Nrdup a/base/startup/init_lite/services/src/init_service.c b/base/startup/init_lite/services/src/init_service.c
---- a/src/init_service.c	2021-09-01 10:09:06.322007388 +0800
-+++ b/src/init_service.c	2021-09-01 10:07:28.513399664 +0800
+diff -Nrdup a/src/init_service.c b/src/init_service.c
+--- a/src/init_service.c	2021-09-01 12:51:12.369601814 +0800
++++ b/src/init_service.c	2021-09-01 12:51:32.106000486 +0800
 @@ -15,7 +15,8 @@
  
  #include "init_service.h"
